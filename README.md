@@ -18,10 +18,25 @@ command in your Node-RED user directory, typically `~/.node-red`
 
 ## Sample parameters
 ```js
+// #어휘관계분석
+// ParaphraseQA 문장 패러프레이즈 인식 API {'argument': {'question': question, 'type': type}}
+// WiseWWN/Word 어휘 정보 API {'argument': {'word': word}}
+// WiseWWN/Homonym 동음이의어 정보 API {'argument': {'word': word}}
+// WiseWWN/Polysemy 다의어 정보 API {'argument': {'word': word}}
+// WiseWWN/WordRel 어휘 간 유사도 분석 API {'argument': {'first_word': first_word, 'first_sense_id': first_sense_id, 'second_word': second_word, 'second_sense_id': second_sense_id }}
+// NELinking 개체 연결(NE Linking) API {'argument': {'contents': contents}}
+// Coreference 상호참조 해결 API {'argument': {'text': text}}
+// #질의응답
+// WiseQAnal 질문분석 API {'argument': {'text': text}}
+// MRCServlet 기계독해 API {'argument': {'question': question, 'passage': passage}}
+// WikiQA 위키백과 QA API  {'argument': {'question': question, 'type': type}}
+// LegalQA 법률 QA API  {'argument': {'question': question}}
+// DocUpload and DocQA 행정문서 QA API  {'argument': {'question': question, 'type': type}}
 
-msg.params = {};
-msg.params.text = 'test'; //#검색어
-msg.params.openapi = 'ko' //# openapi language code
+msg.openapi = 'WiseWWN/Word';
+msg.params  ={};
+msg.params.argument = {};
+msg.params.argument.word = '테스트';
 
 return msg;
 
