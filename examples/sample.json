@@ -1,0 +1,407 @@
+[
+  {
+    "id": "f3650109a893ec0f",
+    "type": "etriopenapi",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "text": "",
+    "openapi": "",
+    "creds": "82f40c032eeb38b8",
+    "x": 490,
+    "y": 20,
+    "wires": [
+      [
+        "6808585b9ab71581"
+      ]
+    ]
+  },
+  {
+    "id": "87c1e4795e32bc81",
+    "type": "inject",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 20,
+    "wires": [
+      [
+        "ec17be0bb3639763"
+      ]
+    ]
+  },
+  {
+    "id": "ec17be0bb3639763",
+    "type": "function",
+    "z": "6cceedf385c58a9c",
+    "name": "어휘 정보",
+    "func": "// https://aiopen.etri.re.kr/serviceList\n// #어휘관계분석\n// ParaphraseQA 문장 패러프레이즈 인식 API {'argument': {'question': question, 'type': type}}\n// WiseWWN/Word 어휘 정보 API {'argument': {'word': word}}\n// WiseWWN/Homonym 동음이의어 정보 API {'argument': {'word': word}}\n// WiseWWN/Polysemy 다의어 정보 API {'argument': {'word': word}}\n// WiseWWN/WordRel 어휘 간 유사도 분석 API {'argument': {'first_word': first_word, 'first_sense_id': first_sense_id, 'second_word': second_word, 'second_sense_id': second_sense_id }}\n// NELinking 개체 연결(NE Linking) API {'argument': {'contents': contents}}\n// Coreference 상호참조 해결 API {'argument': {'text': text}}\n// #질의응답\n// WiseQAnal 질문분석 API {'argument': {'text': text}}\n// MRCServlet 기계독해 API {'argument': {'question': question, 'passage': passage}}\n// WikiQA 위키백과 QA API  {'argument': {'question': question, 'type': type}}\n// LegalQA 법률 QA API  {'argument': {'question': question}}\n// DocUpload and DocQA 행정문서 QA API  {'argument': {'question': question, 'type': type}}\n\nmsg.openapi = 'WiseWWN/Word';\nmsg.params  ={};\nmsg.params.argument = {};\nmsg.params.argument.word = '테스트';\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 300,
+    "y": 20,
+    "wires": [
+      [
+        "f3650109a893ec0f"
+      ]
+    ]
+  },
+  {
+    "id": "6808585b9ab71581",
+    "type": "debug",
+    "z": "6cceedf385c58a9c",
+    "name": "debug 1",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 680,
+    "y": 20,
+    "wires": []
+  },
+  {
+    "id": "c3499820c3cd518a",
+    "type": "etriopenapi",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "text": "",
+    "openapi": "",
+    "creds": "82f40c032eeb38b8",
+    "x": 490,
+    "y": 60,
+    "wires": [
+      [
+        "ecc34858797d8bbb"
+      ]
+    ]
+  },
+  {
+    "id": "c6896a6b81a97f35",
+    "type": "inject",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 60,
+    "wires": [
+      [
+        "6cec5a64cc0e04bb"
+      ]
+    ]
+  },
+  {
+    "id": "6cec5a64cc0e04bb",
+    "type": "function",
+    "z": "6cceedf385c58a9c",
+    "name": "동음이의어 정보",
+    "func": "// https://aiopen.etri.re.kr/serviceList\n// #어휘관계분석\n// ParaphraseQA 문장 패러프레이즈 인식 API {'argument': {'question': question, 'type': type}}\n// WiseWWN/Word 어휘 정보 API {'argument': {'word': word}}\n// WiseWWN/Homonym 동음이의어 정보 API {'argument': {'word': word}}\n// WiseWWN/Polysemy 다의어 정보 API {'argument': {'word': word}}\n// WiseWWN/WordRel 어휘 간 유사도 분석 API {'argument': {'first_word': first_word, 'first_sense_id': first_sense_id, 'second_word': second_word, 'second_sense_id': second_sense_id }}\n// NELinking 개체 연결(NE Linking) API {'argument': {'contents': contents}}\n// Coreference 상호참조 해결 API {'argument': {'text': text}}\n// #질의응답\n// WiseQAnal 질문분석 API {'argument': {'text': text}}\n// MRCServlet 기계독해 API {'argument': {'question': question, 'passage': passage}}\n// WikiQA 위키백과 QA API  {'argument': {'question': question, 'type': type}}\n// LegalQA 법률 QA API  {'argument': {'question': question}}\n// DocUpload and DocQA 행정문서 QA API  {'argument': {'question': question, 'type': type}}\n\nmsg.openapi = 'WiseWWN/Homonym';\nmsg.params  ={};\nmsg.params.argument = {};\nmsg.params.argument.word = '테스트';\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 60,
+    "wires": [
+      [
+        "c3499820c3cd518a"
+      ]
+    ]
+  },
+  {
+    "id": "ecc34858797d8bbb",
+    "type": "debug",
+    "z": "6cceedf385c58a9c",
+    "name": "debug 2",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 680,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "1eafec9bcc0f355c",
+    "type": "etriopenapi",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "text": "",
+    "openapi": "",
+    "creds": "82f40c032eeb38b8",
+    "x": 490,
+    "y": 100,
+    "wires": [
+      [
+        "1b8722d86212d37f"
+      ]
+    ]
+  },
+  {
+    "id": "2cde001c514e2bf5",
+    "type": "inject",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 100,
+    "wires": [
+      [
+        "ad019c55cadf05fb"
+      ]
+    ]
+  },
+  {
+    "id": "ad019c55cadf05fb",
+    "type": "function",
+    "z": "6cceedf385c58a9c",
+    "name": "다의어 정보",
+    "func": "// https://aiopen.etri.re.kr/serviceList\n// #어휘관계분석\n// ParaphraseQA 문장 패러프레이즈 인식 API {'argument': {'question': question, 'type': type}}\n// WiseWWN/Word 어휘 정보 API {'argument': {'word': word}}\n// WiseWWN/Homonym 동음이의어 정보 API {'argument': {'word': word}}\n// WiseWWN/Polysemy 다의어 정보 API {'argument': {'word': word}}\n// WiseWWN/WordRel 어휘 간 유사도 분석 API {'argument': {'first_word': first_word, 'first_sense_id': first_sense_id, 'second_word': second_word, 'second_sense_id': second_sense_id }}\n// NELinking 개체 연결(NE Linking) API {'argument': {'contents': contents}}\n// Coreference 상호참조 해결 API {'argument': {'text': text}}\n// #질의응답\n// WiseQAnal 질문분석 API {'argument': {'text': text}}\n// MRCServlet 기계독해 API {'argument': {'question': question, 'passage': passage}}\n// WikiQA 위키백과 QA API  {'argument': {'question': question, 'type': type}}\n// LegalQA 법률 QA API  {'argument': {'question': question}}\n// DocUpload and DocQA 행정문서 QA API  {'argument': {'question': question, 'type': type}}\n\nmsg.openapi = 'WiseWWN/Polysemy';\nmsg.params  ={};\nmsg.params.argument = {};\nmsg.params.argument.word = '테스트';\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 310,
+    "y": 100,
+    "wires": [
+      [
+        "1eafec9bcc0f355c"
+      ]
+    ]
+  },
+  {
+    "id": "1b8722d86212d37f",
+    "type": "debug",
+    "z": "6cceedf385c58a9c",
+    "name": "debug 3",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 680,
+    "y": 100,
+    "wires": []
+  },
+  {
+    "id": "0ae452b68507fc9b",
+    "type": "etriopenapi",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "text": "",
+    "openapi": "",
+    "creds": "82f40c032eeb38b8",
+    "x": 490,
+    "y": 140,
+    "wires": [
+      [
+        "c716403a04937e18"
+      ]
+    ]
+  },
+  {
+    "id": "f40bd2e83d44eb27",
+    "type": "inject",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 140,
+    "wires": [
+      [
+        "c2d8cb3d33e63ed8"
+      ]
+    ]
+  },
+  {
+    "id": "c2d8cb3d33e63ed8",
+    "type": "function",
+    "z": "6cceedf385c58a9c",
+    "name": "질문분석",
+    "func": "// https://aiopen.etri.re.kr/serviceList\n// #어휘관계분석\n// ParaphraseQA 문장 패러프레이즈 인식 API {'argument': {'question': question, 'type': type}}\n// WiseWWN/Word 어휘 정보 API {'argument': {'word': word}}\n// WiseWWN/Homonym 동음이의어 정보 API {'argument': {'word': word}}\n// WiseWWN/Polysemy 다의어 정보 API {'argument': {'word': word}}\n// WiseWWN/WordRel 어휘 간 유사도 분석 API {'argument': {'first_word': first_word, 'first_sense_id': first_sense_id, 'second_word': second_word, 'second_sense_id': second_sense_id }}\n// NELinking 개체 연결(NE Linking) API {'argument': {'contents': contents}}\n// Coreference 상호참조 해결 API {'argument': {'text': text}}\n// #질의응답\n// WiseQAnal 질문분석 API {'argument': {'text': text}}\n// MRCServlet 기계독해 API {'argument': {'question': question, 'passage': passage}}\n// WikiQA 위키백과 QA API  {'argument': {'question': question, 'type': type}}\n// LegalQA 법률 QA API  {'argument': {'question': question}}\n// DocUpload and DocQA 행정문서 QA API  {'argument': {'question': question, 'type': type}}\n\nmsg.openapi = 'WiseQAnal';\nmsg.params  ={};\nmsg.params.argument = {};\nmsg.params.argument.text = '검사의 뜻은 무엇입니까?';\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 300,
+    "y": 140,
+    "wires": [
+      [
+        "0ae452b68507fc9b"
+      ]
+    ]
+  },
+  {
+    "id": "c716403a04937e18",
+    "type": "debug",
+    "z": "6cceedf385c58a9c",
+    "name": "debug 4",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 680,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "ec8f074cb2f14eee",
+    "type": "etriopenapi",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "text": "",
+    "openapi": "",
+    "creds": "82f40c032eeb38b8",
+    "x": 490,
+    "y": 180,
+    "wires": [
+      [
+        "c31f61c0e6b19530"
+      ]
+    ]
+  },
+  {
+    "id": "e8b50a0b7ca54905",
+    "type": "inject",
+    "z": "6cceedf385c58a9c",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 180,
+    "wires": [
+      [
+        "3aaed5f442732f92"
+      ]
+    ]
+  },
+  {
+    "id": "3aaed5f442732f92",
+    "type": "function",
+    "z": "6cceedf385c58a9c",
+    "name": "법률 QA ",
+    "func": "// https://aiopen.etri.re.kr/serviceList\n// #어휘관계분석\n// ParaphraseQA 문장 패러프레이즈 인식 API {'argument': {'question': question, 'type': type}}\n// WiseWWN/Word 어휘 정보 API {'argument': {'word': word}}\n// WiseWWN/Homonym 동음이의어 정보 API {'argument': {'word': word}}\n// WiseWWN/Polysemy 다의어 정보 API {'argument': {'word': word}}\n// WiseWWN/WordRel 어휘 간 유사도 분석 API {'argument': {'first_word': first_word, 'first_sense_id': first_sense_id, 'second_word': second_word, 'second_sense_id': second_sense_id }}\n// NELinking 개체 연결(NE Linking) API {'argument': {'contents': contents}}\n// Coreference 상호참조 해결 API {'argument': {'text': text}}\n// #질의응답\n// WiseQAnal 질문분석 API {'argument': {'text': text}}\n// MRCServlet 기계독해 API {'argument': {'question': question, 'passage': passage}}\n// WikiQA 위키백과 QA API  {'argument': {'question': question, 'type': type}}\n// LegalQA 법률 QA API  {'argument': {'question': question}}\n// DocUpload and DocQA 행정문서 QA API  {'argument': {'question': question, 'type': type}}\n\nmsg.openapi = 'LegalQA';\nmsg.params  ={};\nmsg.params.argument = {};\nmsg.params.argument.question = `\n공공기관 위촉계약직으로 채용되어 하나의 사업팀을 맡아 2년 6개월을 근무하였습니다. 그러나 올해 저를 팀장에서 팀원으로 격하시키고, 제가 맡던 업무나 경력과는 관련이 없는 팀의 팀원으로 인사조치를 내렸습니다. 사전에 어떤 협의나 절차는 없었으며, 일방적으로 통보가 되었습니다. 그에 더하여 작년 업무평가를 명확한 근거없이 최하등급으로 평가하였습니다.(저의 입장에서는 부당한 입사조치를 합리화하기 위한 근거로 만들기 위한 것 같습니다.) 받아들여지기에는 자발적으로 퇴사하도록 종요하는 조치인 것 같은데요, 이에 대해 제가 취할 수 있는 조치는 무엇이 있을지 궁금합니다. 아래 세 가지에 대한 대응이 가능한지 문의드리고 싶습니다.\n1) 위력에 의한 부당인사조치로 갑질에 해당한다고 볼 수 있는지의 여부\n2) 부당노동구제신청이 가능한지의 여부\n3) 기타 법적인 대응(고소)이 가능한지의 여부\n`\nmsg.params.argument.question = `\n저는 지방 공립학교 교사입니다.  2016-2019년까지 해외학교 파견근무를 갖다 왔고 2020년부터 현재 거주하는 지방도시에서 근무하고 있습니다. \n우리 도교육청 규정은 시 행정구역 안 에서는 8년의 근무 가능 규정을 두고 있고 저는 해외 파견 근무 기간을 제외하면 3년의 근무 가능 연한이 남아 살고있는 곳에서 계속 근무하는 것으로 예측을 했습니다. \n왜냐하면 소속 도교육청 인사 규정에는 \"해외파견 기간은 근무기간에 산입하지 않는다\" 라는 조항을 알고 있었기에 9월에는 여기서 살 집을 매입하였습니다.\n그런데 인사 이동 기간인 지난 12월 중순에 교육청에서 시 관할지역 내 근무 연한이 만기되어 다른 시군으로 가야 한다는 통보가 왔고 혹시 몰라 인사규정이 개정이 되었나 찾아보니 \n개정안에는 \"해외파견 근무자의 근무기간은 산입하지 않을 수 있다\"라는 조항이 신설 되었지만 그 시행일이 2022.3.1. 이라고 명시되어 있고 소급해서 적용한다는 내용은 따로 없었습니다. \n부당함을 느껴 도교육청 인사담당 총괄 장학사를 찾아갔더니 저와 같은 상황에 있었던 사람들이 여태까지 규정과는 달리 파견 기간을 산입해서 처리해 왔다고 관례를 들먹이며 묵살했습니다. \n이에 대해 사안을 정리하여 도교육청 인사팀장, 담당 장학사, 시교육청 인사 주무관, 우리학교 교장 교감, 즉 인사관련 수직 계열의 모든 사람에게 인트라넷 메신저로 관련 내용을 말했지만 메신저나 문서의 답은 없고 다음날 교감을 통해 \n\"교육청에서 연락이 왔는데 내일까지로 정해진 기한 내 관외 전보 희망서를 제출하지 않으면 문서나 어떤 조치를 할 것 이다\" 라는 말을 핸드폰 문자를 받았습니다. \n이것이 저에게 매우 큰 압박으로 다가왔고 조직 내 추가적인 불이익을 받을까 걱정되어 그들의 요구대로 일단 관외전보신청서를 제출했습니다. \n결국 엊그제 제가 사는곳에서 120km거리에 있는 가장 먼 곳으로 발령이 나게 되었습니다. \n행정심판이나 행정소송을 통해 저의 인사조치가 원상회복이 가능한 지 궁금합니다.  \n`\nmsg.params.argument.question = \n`건물내 계단 인사사고 배상문제\n딸아이(중3)가 친구들과 영화보고 출구는 계단으로 되어있어 2층에서 1층으로 내려가는데 물청소를 하고 있어서 뒤로넘어져서 귀안쪽에서 얼굴쪽까지 6센치정도 찢어져서 피도많이 흘렸으나 \n영화관측은 몰랐고 119불러서 병원가서 봉합수술을 했습니다.\n추후 연락하니 계단은 건물주의 책임이라며 건물쪽 관리사가 전화왔고 다시 보험회사에서 현장보고 연락주기로 했는데 흉터가 남는다고 하는데 미성년자라 나중에 치료받아야할듯합니다.\n보상금액등 어찌해야할지 상담부탁드립니다.`\n\n// msg.params = JSON.stringify(msg.params);\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 300,
+    "y": 180,
+    "wires": [
+      [
+        "ec8f074cb2f14eee"
+      ]
+    ]
+  },
+  {
+    "id": "c31f61c0e6b19530",
+    "type": "debug",
+    "z": "6cceedf385c58a9c",
+    "name": "debug 5",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 680,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "82f40c032eeb38b8",
+    "type": "etriOpenaiApiKey",
+    "name": "key"
+  }
+]
