@@ -1,0 +1,98 @@
+<script type="text/html" data-template-name="etriopenapi">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span
+                data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-creds"> <i class="fa fa-key fa-fw"></i> API key</span></label>
+        <input type="text" id="node-input-creds">
+    </div>
+    <div class="form-row"><label for="node-input-openapi"><i class="fa"></i> <span data-i18n="etriopenapi.label.openapi"></span></label>
+        <input type="text"
+               id="node-input-openapi"
+               data-i18n="[placeholder]etriopenapi.desc.openapi">
+    </div>
+    <div class="form-row"><label for="node-input-text"><i class="fa"></i> <span
+            data-i18n="etriopenapi.label.text"></span> </label> <input type="text"
+                                                                      id="node-input-text"
+                                                                      data-i18n="[placeholder]etriopenapi.desc.text">
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="etriopenapi">
+    <p>Summary of the node.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>Explanation of payload.</dd>
+        <dt class="optional">topic <span class="property-type">string</span></dt>
+        <dd>Explanation of topic.</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>Explanation of payload.</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>Explanation of topic.</dd>
+    </dl>
+    <h3>Details</h3>
+    <p>Explanation of the details.</p>
+    <p><b>Note</b>: Note of the node.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('etriopenapi', {
+        color: '#ffffff',
+        category: 'function',
+        defaults: {
+            name: {value: ''},
+            openapi: {value: "", required: false},
+            text: {value: "", required: false},
+            creds: {
+                value: "",
+                type: "etriOpenaiApiKey"
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        label: function () {
+            return this.name || 'etriopenapi';
+        },
+        icon: 'icon.png',
+        align: 'left'
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="etriOpenaiApiKey">
+    <div class="form-row">
+        <label for="node-input-name"> <i class="fa fa-tag fa-fw"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+      <label for="node-config-input-access_key"> Client Id</label>
+      <input type="text" id="node-config-input-access_key" placeholder="Client Id">
+    </div>
+
+
+
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('etriOpenaiApiKey', {
+        category: 'config',
+        defaults: {
+            name: {value: ""}
+        },
+        credentials: {
+            access_key: {},
+        },
+        label: function () {
+            return this.name || 'API Key';
+        }
+    });
+</script>
+

@@ -1,0 +1,12 @@
+{
+  "etriopenapi" : {
+    "label" : {
+      "text": "검색어",
+      "openapi": "API 구분"
+    },
+    "desc" : {
+      "text": "파라미터로 전달해 주세요. msg.params",
+      "openapi": "ParaphraseQA, WiseWWN/Word, WiseWWN/Homonym, WiseWWN/Polysemy, WiseWWN/WordRel, NELinking, Coreference, WiseQAnal, MRCServlet, WikiQA, LegalQA 중 하나 입력"
+    }
+  }
+}

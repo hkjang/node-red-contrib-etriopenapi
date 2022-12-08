@@ -1,0 +1,12 @@
+{
+  "etriopenapi" : {
+    "label" : {
+      "text": "text",
+      "openapi": "openapi"
+    },
+    "desc" : {
+      "text": "text for etriopenapi",
+      "openapi": "ParaphraseQA, WiseWWN/Word, WiseWWN/Homonym, WiseWWN/Polysemy, WiseWWN/WordRel, NELinking, Coreference, WiseQAnal, MRCServlet, WikiQA, LegalQA"
+    }
+  }
+}

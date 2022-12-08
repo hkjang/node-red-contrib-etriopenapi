@@ -1,0 +1,37 @@
+{
+  "name": "node-red-contrib-etriopenapi",
+  "version": "1.0.5",
+  "description": "Node-RED node for etriopenapi",
+  "main": "node.js",
+  "scripts": {
+    "test": "mocha \"test/**/*_spec.js\" --timeout 3000"
+  },
+  "node-red": {
+    "nodes": {
+      "etriopenapi": "node.js"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/hkjang/node-red-contrib-etriopenapi/issues"
+  },
+  "homepage": "https://github.com/hkjang/node-red-contrib-etriopenapi#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkjang/node-red-contrib-etriopenapi.git"
+  },
+  "keywords": [
+    "node-red-contrib-contribgen",
+    "node-red",
+    "etriopenapi",
+    "etriopenapi api",
+    "AI 번역",
+    "etri",
+    "translate",
+    "ai translate",
+    "nodejs"
+  ],
+  "dependencies": {
+    "axios": "^1.2.1"
+  },
+  "license": "Apache-2.0"
+}
